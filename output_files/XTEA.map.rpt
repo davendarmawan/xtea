@@ -1,0 +1,1231 @@
+Analysis & Synthesis report for XTEA
+Thu Dec 15 17:08:59 2022
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Logic Cells Representing Combinational Loops
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Dec 15 17:08:58 2022      ;
+; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name                      ; XTEA                                       ;
+; Top-level Entity Name              ; xtea                                       ;
+; Family                             ; Cyclone IV E                               ;
+; Total logic elements               ; 1,654                                      ;
+;     Total combinational functions  ; 1,654                                      ;
+;     Dedicated logic registers      ; 64                                         ;
+; Total registers                    ; 64                                         ;
+; Total pins                         ; 133                                        ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE6E22C8        ;                    ;
+; Top-level entity name                                                      ; XTEA               ; XTEA               ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ; < 0.1%      ;
+;     Processors 9-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                               ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                        ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
+; encrypt.vhd                      ; yes             ; User VHDL File  ; C:/Users/Daven/Documents/ITB Data/Praktikum Sisdig/XTEA/encrypt.vhd ;         ;
+; decrypt.vhd                      ; yes             ; User VHDL File  ; C:/Users/Daven/Documents/ITB Data/Praktikum Sisdig/XTEA/decrypt.vhd ;         ;
+; XTEA.vhd                         ; yes             ; User VHDL File  ; C:/Users/Daven/Documents/ITB Data/Praktikum Sisdig/XTEA/XTEA.vhd    ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 1,654     ;
+;                                             ;           ;
+; Total combinational functions               ; 1654      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 520       ;
+;     -- 3 input functions                    ; 610       ;
+;     -- <=2 input functions                  ; 524       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 1092      ;
+;     -- arithmetic mode                      ; 562       ;
+;                                             ;           ;
+; Total registers                             ; 64        ;
+;     -- Dedicated logic registers            ; 64        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 133       ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+; Maximum fan-out node                        ; rst~input ;
+; Maximum fan-out                             ; 340       ;
+; Total fan-out                               ; 5271      ;
+; Average fan-out                             ; 2.66      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; |xtea                      ; 1654 (64)         ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 133  ; 0            ; |xtea               ; work         ;
+;    |decrypt:dec|           ; 795 (795)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |xtea|decrypt:dec   ; work         ;
+;    |encrypt:enc|           ; 795 (795)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |xtea|encrypt:enc   ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                 ;
++------------------------------------------------------+---------------------+------------------------+
+; Latch Name                                           ; Latch Enable Signal ; Free of Timing Hazards ;
++------------------------------------------------------+---------------------+------------------------+
+; encrypt:enc|crtext[0]                                ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[0]                                ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[1]                                ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[1]                                ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[2]                                ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[2]                                ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[3]                                ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[3]                                ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[4]                                ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[4]                                ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[5]                                ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[5]                                ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[6]                                ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[6]                                ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[7]                                ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[7]                                ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[8]                                ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[8]                                ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[9]                                ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[9]                                ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[10]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[10]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[11]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[11]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[12]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[12]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[13]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[13]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[14]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[14]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[15]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[15]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[16]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[16]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[17]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[17]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[18]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[18]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[19]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[19]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[20]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[20]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[21]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[21]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[22]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[22]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[23]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[23]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[24]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[24]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[25]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[25]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[26]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[26]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[27]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[27]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[28]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[28]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[29]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[29]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[30]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[30]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[31]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[31]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[32]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[32]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[33]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[33]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[34]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[34]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[35]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[35]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[36]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[36]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[37]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[37]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[38]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[38]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[39]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[39]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[40]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[40]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[41]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[41]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[42]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[42]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[43]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[43]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[44]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[44]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[45]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[45]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[46]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[46]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[47]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[47]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[48]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[48]                               ; decrypt:dec|L~0     ; yes                    ;
+; encrypt:enc|crtext[49]                               ; encrypt:enc|sum~0   ; yes                    ;
+; decrypt:dec|pltext[49]                               ; decrypt:dec|L~0     ; yes                    ;
+; Number of user-specified and inferred latches = 334  ;                     ;                        ;
++------------------------------------------------------+---------------------+------------------------+
+Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops               ;
++--------------------------------------------------------+---+
+; Logic Cell Name                                        ;   ;
++--------------------------------------------------------+---+
+; encrypt:enc|sum~1                                      ;   ;
+; decrypt:dec|L~1                                        ;   ;
+; encrypt:enc|nextstate.s2                               ;   ;
+; encrypt:enc|nextstate.s0~0                             ;   ;
+; decrypt:dec|nextstate.s2                               ;   ;
+; decrypt:dec|nextstate.s0~0                             ;   ;
+; Number of logic cells representing combinational loops ; 6 ;
++--------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; out_ready~reg0                        ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 1 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 64    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
+; 4:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; No         ; |xtea|decrypt:dec|Selector41  ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; No         ; |xtea|decrypt:dec|Selector15  ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; No         ; |xtea|encrypt:enc|Selector20  ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |xtea|encrypt:enc|Selector165 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:05     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Thu Dec 15 17:08:51 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off XTEA -c XTEA
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file encrypt.vhd
+    Info (12022): Found design unit 1: encrypt-FSM
+    Info (12023): Found entity 1: encrypt
+Info (12021): Found 2 design units, including 1 entities, in source file decrypt.vhd
+    Info (12022): Found design unit 1: decrypt-FSM
+    Info (12023): Found entity 1: decrypt
+Info (12021): Found 2 design units, including 1 entities, in source file xtea.vhd
+    Info (12022): Found design unit 1: xtea-xtea_arc
+    Info (12023): Found entity 1: xtea
+Info (12127): Elaborating entity "XTEA" for the top level hierarchy
+Info (12128): Elaborating entity "encrypt" for hierarchy "encrypt:enc"
+Warning (10541): VHDL Signal Declaration warning at encrypt.vhd(11): used implicit default value for signal "output_ready" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(49): signal "count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(73): signal "nextstate" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(74): signal "nextstate" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(77): signal "pltext" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(78): signal "pltext" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(80): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(82): signal "L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(82): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(82): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(85): signal "L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(85): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(85): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(88): signal "L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(88): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(88): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(91): signal "L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(91): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(91): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(93): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(96): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(98): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(98): signal "L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(98): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(101): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(101): signal "L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(101): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(104): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(104): signal "L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(104): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(107): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(107): signal "L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(107): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(109): signal "count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(112): signal "L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at encrypt.vhd(112): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at encrypt.vhd(63): inferring latch(es) for signal or variable "crtext", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at encrypt.vhd(63): inferring latch(es) for signal or variable "count", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at encrypt.vhd(63): inferring latch(es) for signal or variable "L", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at encrypt.vhd(63): inferring latch(es) for signal or variable "R", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at encrypt.vhd(63): inferring latch(es) for signal or variable "sum", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "sum[0]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[1]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[2]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[3]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[4]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[5]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[6]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[7]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[8]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[9]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[10]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[11]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[12]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[13]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[14]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[15]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[16]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[17]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[18]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[19]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[20]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[21]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[22]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[23]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[24]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[25]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[26]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[27]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[28]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[29]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[30]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "sum[31]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[0]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[1]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[2]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[3]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[4]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[5]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[6]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[7]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[8]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[9]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[10]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[11]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[12]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[13]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[14]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[15]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[16]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[17]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[18]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[19]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[20]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[21]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[22]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[23]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[24]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[25]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[26]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[27]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[28]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[29]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[30]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "R[31]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[0]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[1]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[2]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[3]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[4]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[5]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[6]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[7]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[8]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[9]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[10]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[11]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[12]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[13]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[14]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[15]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[16]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[17]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[18]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[19]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[20]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[21]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[22]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[23]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[24]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[25]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[26]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[27]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[28]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[29]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[30]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "L[31]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "count[0]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "count[1]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "count[2]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "count[3]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "count[4]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "count[5]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "count[6]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[0]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[1]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[2]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[3]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[4]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[5]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[6]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[7]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[8]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[9]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[10]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[11]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[12]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[13]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[14]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[15]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[16]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[17]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[18]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[19]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[20]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[21]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[22]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[23]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[24]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[25]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[26]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[27]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[28]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[29]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[30]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[31]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[32]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[33]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[34]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[35]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[36]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[37]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[38]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[39]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[40]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[41]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[42]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[43]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[44]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[45]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[46]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[47]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[48]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[49]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[50]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[51]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[52]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[53]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[54]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[55]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[56]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[57]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[58]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[59]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[60]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[61]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[62]" at encrypt.vhd(63)
+Info (10041): Inferred latch for "crtext[63]" at encrypt.vhd(63)
+Info (12128): Elaborating entity "decrypt" for hierarchy "decrypt:dec"
+Warning (10541): VHDL Signal Declaration warning at decrypt.vhd(11): used implicit default value for signal "output_ready" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(49): signal "count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(73): signal "nextstate" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(74): signal "nextstate" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(77): signal "crtext" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(78): signal "crtext" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(80): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(82): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(82): signal "L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(82): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(85): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(85): signal "L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(85): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(88): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(88): signal "L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(88): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(91): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(91): signal "L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(91): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(93): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(96): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(98): signal "L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(98): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(98): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(101): signal "L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(101): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(101): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(104): signal "L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(104): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(104): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(107): signal "L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(107): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(107): signal "sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(109): signal "count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(112): signal "L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at decrypt.vhd(112): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at decrypt.vhd(63): inferring latch(es) for signal or variable "pltext", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at decrypt.vhd(63): inferring latch(es) for signal or variable "count", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at decrypt.vhd(63): inferring latch(es) for signal or variable "L", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at decrypt.vhd(63): inferring latch(es) for signal or variable "R", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at decrypt.vhd(63): inferring latch(es) for signal or variable "sum", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "sum[0]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[1]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[2]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[3]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[4]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[5]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[6]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[7]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[8]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[9]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[10]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[11]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[12]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[13]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[14]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[15]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[16]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[17]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[18]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[19]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[20]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[21]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[22]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[23]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[24]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[25]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[26]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[27]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[28]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[29]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[30]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "sum[31]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[0]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[1]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[2]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[3]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[4]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[5]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[6]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[7]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[8]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[9]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[10]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[11]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[12]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[13]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[14]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[15]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[16]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[17]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[18]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[19]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[20]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[21]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[22]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[23]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[24]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[25]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[26]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[27]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[28]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[29]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[30]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "R[31]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[0]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[1]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[2]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[3]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[4]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[5]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[6]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[7]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[8]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[9]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[10]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[11]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[12]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[13]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[14]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[15]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[16]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[17]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[18]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[19]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[20]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[21]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[22]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[23]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[24]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[25]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[26]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[27]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[28]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[29]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[30]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "L[31]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "count[0]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "count[1]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "count[2]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "count[3]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "count[4]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "count[5]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "count[6]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[0]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[1]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[2]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[3]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[4]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[5]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[6]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[7]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[8]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[9]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[10]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[11]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[12]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[13]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[14]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[15]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[16]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[17]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[18]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[19]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[20]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[21]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[22]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[23]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[24]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[25]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[26]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[27]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[28]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[29]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[30]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[31]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[32]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[33]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[34]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[35]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[36]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[37]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[38]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[39]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[40]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[41]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[42]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[43]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[44]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[45]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[46]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[47]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[48]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[49]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[50]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[51]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[52]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[53]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[54]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[55]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[56]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[57]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[58]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[59]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[60]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[61]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[62]" at decrypt.vhd(63)
+Info (10041): Inferred latch for "pltext[63]" at decrypt.vhd(63)
+Warning (13012): Latch encrypt:enc|R[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|R[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|R[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|L[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|L[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13012): Latch encrypt:enc|sum[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal encrypt:enc|nextstate.s2
+Warning (13012): Latch decrypt:dec|sum[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decrypt:dec|nextstate.s2
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "out_ready" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1787 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 68 input pins
+    Info (21059): Implemented 65 output pins
+    Info (21061): Implemented 1654 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 468 warnings
+    Info: Peak virtual memory: 4724 megabytes
+    Info: Processing ended: Thu Dec 15 17:08:59 2022
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:05
+
+

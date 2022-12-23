@@ -1,0 +1,57 @@
+function encipher (v: array [0..1] of integer, key: array [0..1] of integer)
+	KAMUS LOKAL
+		rounds: integer
+		i: integer
+		y: integer
+		z: integer
+		sum: integer
+		delta: float
+		
+	ALGORITMA
+		rounds = 64;
+		i = 0;
+		y = v[0];
+		z = v[1];
+		sum = 0;
+		delta = 0x9E3779B9;
+		
+		for i = 0 to rounds do
+			y = y + (((((Left shift z 4 times) XOR (Right shift z 5 times)) + z) XOR (sum + key[sum AND 3])));
+			sum = sum + delta;
+			z = z + (((((Left shift y 4 times) XOR (Right shift z 5 times)) + y) XOR (sum + key[(Right shift sum 11 times) AND 3])));
+	
+		end for;
+			
+		v[0] = y;
+		v[1] = z;
+		
+		return v;
+		
+function decipher (v: array [0..1] of integer, key: array [0..1] of integer)
+	KAMUS LOKAL
+		rounds: integer
+		i: integer
+		y: integer
+		z: integer
+		sum: integer
+		delta: float
+		
+	ALGORITMA
+		rounds = 64;
+		i = 0;
+		y = v[0];
+		z = v[1];
+		sum = delta * rounds;
+		delta = 0x9E3779B9;
+		
+		for i = 0 to rounds do
+			z = z - (((((Left shift y 4 times) XOR (Right shift z 5 times)) + y) XOR (sum + key[(Right shift sum 11 times) AND 3])));
+			sum = sum - delta;
+			y = y - (((((Left shift z 4 times) XOR (Right shift z 5 times)) + z) XOR (sum + key[sum AND 3])));
+	
+		end for;
+			
+		v[0] = y;
+		v[1] = z;
+		
+		return v;
